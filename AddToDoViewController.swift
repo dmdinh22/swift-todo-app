@@ -23,7 +23,7 @@ class AddToDoViewController: UIViewController {
     @IBAction func addBtnTapped(_ sender: Any) {
         // create ToDo object with data from view
         let todoItem = ToDo()
-        todoItem.name = titleTextField.text!
+        todoItem.name = titleTextField.text! // optional because text may be nil
         todoItem.isImportant = importantSwitch.isOn
         
         toDoListViewController.toDoList.append(todoItem)
