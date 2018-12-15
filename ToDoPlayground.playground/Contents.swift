@@ -22,4 +22,14 @@ var anotherIntAge = Int("87")
 print(anotherIntAge) // warning: Expression implicitly coerced from 'Int?' to 'Any'
 print(anotherIntAge!)
 
-var favoriteCandy: String? = "Reese's Peanut Butter Cups"
+// handling optionals
+var favoriteCandy: String? = nil
+
+if favoriteCandy != nil {
+    favoriteCandy! // unwrap
+}
+
+// if let
+if let favoriteCandyUnwrapped = favoriteCandy {
+    print(favoriteCandyUnwrapped)
+}

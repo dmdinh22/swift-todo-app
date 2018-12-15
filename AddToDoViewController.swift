@@ -23,16 +23,18 @@ class AddToDoViewController: UIViewController {
     @IBAction func addBtnTapped(_ sender: Any) {
         // create ToDo object with data from view
         let todoItem = ToDo()
-        todoItem.name = titleTextField.text! // optional because text may be nil
-        todoItem.isImportant = importantSwitch.isOn
-        
-        toDoListViewController.toDoList.append(todoItem)
-        
-        // re-render once there has been changes made
-        toDoListViewController.tableView.reloadData()
-        
-        // move back to previous view - popping navigation stack
-        navigationController?.popViewController(animated: true)
+//        todoItem.name = titleTextField.text! // optional because text may be nil
+        if let titleText = titleTextField.text {
+            todoItem.name = titleText // constand from if-let
+            todoItem.isImportant = importantSwitch.isOn
+            
+            toDoListViewController.toDoList.append(todoItem)
+            
+            // re-render once there has been changes made
+            toDoListViewController.tableView.reloadData()
+            
+            // move back to previous view - popping navigation stack
+            navigationController?.popViewController(animated: true)
+        }
     }
-    
 }
