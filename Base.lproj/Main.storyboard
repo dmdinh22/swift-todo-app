@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" title="To Do List" id="GBK-br-3vK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Slp-IW-C3r">
                             <connections>
-                                <segue destination="lsq-gm-7lK" kind="show" id="RK3-Yy-zZX"/>
+                                <segue destination="lsq-gm-7lK" kind="show" id="Xgp-Di-Pmg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -59,15 +59,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaT-LU-OtQ">
-                                <rect key="frame" x="20" y="113" width="335" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="titleTextField:" destination="lsq-gm-7lK" eventType="editingDidEnd" id="ZRB-FQ-Lqv"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMu-nT-LTC">
                                 <rect key="frame" x="150" y="169" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -76,40 +67,42 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t8Z-WS-GjD">
                                 <rect key="frame" x="163" y="198" width="51" height="31"/>
-                                <connections>
-                                    <action selector="importantSwitch:" destination="lsq-gm-7lK" eventType="valueChanged" id="S8J-8z-6Yc"/>
-                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV3-PX-Iqc">
                                 <rect key="frame" x="172.5" y="259" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="addButtonTapped:" destination="lsq-gm-7lK" eventType="touchUpInside" id="2lV-sr-yaE"/>
-                                    <action selector="addTapped:" destination="lsq-gm-7lK" eventType="touchUpInside" id="Oe8-gW-SYb"/>
+                                    <action selector="addBtnTapped:" destination="lsq-gm-7lK" eventType="touchUpInside" id="LyK-jW-u9m"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykT-gE-fQ2">
+                                <rect key="frame" x="20" y="113" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SaT-LU-OtQ" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="1Q9-Xc-8qp"/>
-                            <constraint firstItem="HPP-EX-zQq" firstAttribute="trailing" secondItem="SaT-LU-OtQ" secondAttribute="trailing" constant="20" id="1bj-GX-UyX"/>
+                            <constraint firstItem="ykT-gE-fQ2" firstAttribute="top" secondItem="51t-Yz-seW" secondAttribute="bottom" constant="8" id="5Qj-Oh-Jgi"/>
                             <constraint firstItem="t8Z-WS-GjD" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="DdC-68-SZB"/>
+                            <constraint firstItem="uMu-nT-LTC" firstAttribute="top" secondItem="ykT-gE-fQ2" secondAttribute="bottom" constant="26" id="DdS-lT-zfj"/>
+                            <constraint firstItem="ykT-gE-fQ2" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="EsJ-2l-xO5"/>
                             <constraint firstItem="uMu-nT-LTC" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="Knu-tL-EJa"/>
                             <constraint firstItem="YV3-PX-Iqc" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="MOH-Js-3lQ"/>
                             <constraint firstItem="t8Z-WS-GjD" firstAttribute="top" secondItem="uMu-nT-LTC" secondAttribute="bottom" constant="8" id="THH-n7-wd7"/>
-                            <constraint firstItem="SaT-LU-OtQ" firstAttribute="leading" secondItem="HPP-EX-zQq" secondAttribute="leading" constant="20" id="XW8-v8-BNu"/>
                             <constraint firstItem="YV3-PX-Iqc" firstAttribute="top" secondItem="t8Z-WS-GjD" secondAttribute="bottom" constant="30" id="Ycw-2h-Jg6"/>
-                            <constraint firstItem="SaT-LU-OtQ" firstAttribute="top" secondItem="51t-Yz-seW" secondAttribute="bottom" constant="8" id="cJ4-Hf-GeA"/>
+                            <constraint firstItem="ykT-gE-fQ2" firstAttribute="leading" secondItem="HPP-EX-zQq" secondAttribute="leading" constant="20" id="aKw-kd-bG4"/>
+                            <constraint firstItem="HPP-EX-zQq" firstAttribute="trailing" secondItem="ykT-gE-fQ2" secondAttribute="trailing" constant="20" id="jZC-fm-J5m"/>
                             <constraint firstItem="51t-Yz-seW" firstAttribute="top" secondItem="HPP-EX-zQq" secondAttribute="top" constant="20" id="kbx-dU-ERN"/>
                             <constraint firstItem="51t-Yz-seW" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="rEV-w9-n4n"/>
-                            <constraint firstItem="uMu-nT-LTC" firstAttribute="top" secondItem="SaT-LU-OtQ" secondAttribute="bottom" constant="26" id="ubw-6x-75P"/>
+                            <constraint firstItem="ykT-gE-fQ2" firstAttribute="centerX" secondItem="nqc-Du-Mt0" secondAttribute="centerX" id="t20-OW-JUA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HPP-EX-zQq"/>
                     </view>
                     <connections>
-                        <outlet property="addButtonTapped" destination="YV3-PX-Iqc" id="9eC-kH-MmA"/>
-                        <outlet property="importantSwitch" destination="t8Z-WS-GjD" id="T9n-3h-a3z"/>
-                        <outlet property="titleTextField" destination="SaT-LU-OtQ" id="mX3-Py-P4h"/>
+                        <outlet property="importantSwitch" destination="t8Z-WS-GjD" id="9dk-zs-cfT"/>
+                        <outlet property="titleTextField" destination="ykT-gE-fQ2" id="LNs-3K-L7t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNI-La-PsL" userLabel="First Responder" sceneMemberID="firstResponder"/>

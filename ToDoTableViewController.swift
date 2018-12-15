@@ -49,4 +49,12 @@ class ToDoTableViewController: UITableViewController {
 
         return cell
     }
+    
+    // called right before a segue between views happen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addViewController = segue.destination as! AddToDoViewController
+        
+        // set the property of AddToDoViewController to this ToDoTableViewController
+        addViewController.toDoListViewController = self
+    }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class AddToDoViewController: UIViewController {
+    var toDoListViewController = ToDoTableViewController()
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var importantSwitch: UISwitch!
@@ -19,6 +20,19 @@ class AddToDoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
+    @IBAction func addBtnTapped(_ sender: Any) {
+        // create ToDo object with data from view
+        let todoItem = ToDo()
+        todoItem.name = titleTextField.text!
+        todoItem.isImportant = importantSwitch.isOn
+        
+        toDoListViewController.toDoList.append(todoItem)
+        
+        // re-render once there has been changes made
+        toDoListViewController.tableView.reloadData()
+        
+        // move back to previous view - popping navigation stack
+        navigationController?.popViewController(animated: true)
     }
+    
 }
