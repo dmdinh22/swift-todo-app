@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="818" y="703"/>
         </scene>
-        <!--View Controller-->
+        <!--Add To Do View Controller-->
         <scene sceneID="gbz-xK-K0d">
             <objects>
-                <viewController id="lsq-gm-7lK" sceneMemberID="viewController">
+                <viewController id="lsq-gm-7lK" customClass="AddToDoViewController" customModule="ToDoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nqc-Du-Mt0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleTextField:" destination="lsq-gm-7lK" eventType="editingDidEnd" id="ZRB-FQ-Lqv"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMu-nT-LTC">
                                 <rect key="frame" x="150" y="169" width="75" height="21"/>
@@ -73,10 +76,17 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="t8Z-WS-GjD">
                                 <rect key="frame" x="163" y="198" width="51" height="31"/>
+                                <connections>
+                                    <action selector="importantSwitch:" destination="lsq-gm-7lK" eventType="valueChanged" id="S8J-8z-6Yc"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YV3-PX-Iqc">
                                 <rect key="frame" x="172.5" y="259" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="lsq-gm-7lK" eventType="touchUpInside" id="2lV-sr-yaE"/>
+                                    <action selector="addTapped:" destination="lsq-gm-7lK" eventType="touchUpInside" id="Oe8-gW-SYb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,10 +106,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HPP-EX-zQq"/>
                     </view>
+                    <connections>
+                        <outlet property="addButtonTapped" destination="YV3-PX-Iqc" id="9eC-kH-MmA"/>
+                        <outlet property="importantSwitch" destination="t8Z-WS-GjD" id="T9n-3h-a3z"/>
+                        <outlet property="titleTextField" destination="SaT-LU-OtQ" id="mX3-Py-P4h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNI-La-PsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="704"/>
+            <point key="canvasLocation" x="1496.8" y="703.89805097451278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eed-Ca-vro">
