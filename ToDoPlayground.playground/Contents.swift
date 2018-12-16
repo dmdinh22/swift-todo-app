@@ -61,3 +61,14 @@ var anotherAnimal : Animal = Monkey()
 if let dog = anotherAnimal as? Dog {
     print(dog.furColor)
 }
+
+// for loops
+for counter in 1...10 {
+    print("Hello world! \(counter)")
+}
+
+var favCandies = ["100 Grand", "Hershey", "Fun Dip"]
+
+for candy in favCandies {
+    print(candy)
+}

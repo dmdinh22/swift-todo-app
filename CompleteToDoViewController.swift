@@ -22,8 +22,19 @@ class CompleteToDoViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
+        var index = 0
         // remove item from list on todo list view controller
         // loop through array and find matching item to remove
-        
+        for todo in toDoListViewController.toDoList {
+            if (todo.name == selectedToDoItem.name) {
+                // remove item at this index
+                toDoListViewController.toDoList.remove(at: index)
+                // reload table view
+                toDoListViewController.tableView.reloadData()
+                navigationController?.popViewController(animated: true)
+                break
+            }
+            index += 1
+        }
     }
 }
