@@ -50,6 +50,11 @@ class ToDoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let toDo = toDoList[indexPath.row]
+        performSegue(withIdentifier: "transitionToComplete", sender: toDo)
+    }
+    
     // called right before a segue between views happen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addViewController = segue.destination as? AddToDoViewController {
