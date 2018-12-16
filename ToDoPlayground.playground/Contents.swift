@@ -33,3 +33,31 @@ if favoriteCandy != nil {
 if let favoriteCandyUnwrapped = favoriteCandy {
     print(favoriteCandyUnwrapped)
 }
+
+// subclasses unwrapping
+class Animal {
+    var name = ""
+    var age = 0
+}
+
+class Dog : Animal {
+    var furColor = ""
+}
+
+var myDog = Dog()
+
+class Monkey : Animal {
+    var tail = ""
+}
+
+var someAnimal : Animal = Dog()
+
+// as! takes general class and applies specific subclass to the var/constant
+let dog = someAnimal as! Dog
+dog.furColor
+
+// as? -> check if anotherAnimal is of type Dog
+var anotherAnimal : Animal = Monkey()
+if let dog = anotherAnimal as? Dog {
+    print(dog.furColor)
+}
