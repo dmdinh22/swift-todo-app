@@ -61,5 +61,13 @@ class ToDoTableViewController: UITableViewController {
             // set the property of AddToDoViewController to this ToDoTableViewController
             addViewController.toDoListViewController = self
         }
+        
+        if let completeViewController = segue.destination as? CompleteToDoViewController {
+            if let todo = sender as? ToDo {
+                // set view controller's prop as selected todo item
+                completeViewController.selectedToDoItem = todo
+                completeViewController.toDoListViewController = self
+            }
+        }
     }
 }

@@ -9,14 +9,21 @@
 import UIKit
 
 class CompleteToDoViewController: UIViewController {
-    @IBOutlet weak var ToDoTitleLabel: UILabel!
+    var toDoListViewController = ToDoTableViewController()
+    var selectedToDoItem = ToDo()
+    
+    @IBOutlet weak var toDoTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // set view's title label text to selected item's name
+        toDoTitleLabel.text = selectedToDoItem.name
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
+        // remove item from list on todo list view controller
+        // loop through array and find matching item to remove
+        
     }
 }
