@@ -26,6 +26,7 @@ class CompleteToDoViewController: UIViewController {
             
             if let todoItem = selectedToDoItem {
                 context.delete(todoItem)
+                try? context.save()
                 navigationController?.popViewController(animated: true)
             }
         }
