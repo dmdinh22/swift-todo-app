@@ -22,11 +22,12 @@ class AddToDoViewController: UIViewController {
     
     @IBAction func addBtnTapped(_ sender: Any) {
         /*
+         ## Add in UI - no data saved when app closes ##
         // create ToDo object with data from view
         let todoItem = ToDo()
 //        todoItem.name = titleTextField.text! // optional because text may be nil
         if let titleText = titleTextField.text {
-            todoItem.name = titleText 
+            todoItem.name = titleText
             todoItem.isImportant = importantSwitch.isOn
             
             toDoListViewController.toDoList.append(todoItem)

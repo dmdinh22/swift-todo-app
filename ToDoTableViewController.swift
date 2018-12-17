@@ -9,12 +9,30 @@
 import UIKit
 
 class ToDoTableViewController: UITableViewController {
-    var toDoList: [ToDo] = []
-
+    var toDoList: [ToDoEntity] = []
+    
+    // lifecycle hook on first render of view
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toDoList = createToDos()
+        getToDos()
+    }
+    
+    // lifecycle hook before a view gets rendered
+    override func viewWillAppear(_ animated: Bool) {
+        getToDos()
+    }
+    
+    func getToDos() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            // fetch data from Core Data - as array of ToDoEntity
+            if let coreDataToDos = try? context.fetch(ToDoEntity.fetchRequest()) as? [ToDoEntity] {
+                if let todoItems = coreDataToDos {
+                    toDoList = todoItems
+                    tableView.reloadData()
+                }
+            }
+        }
     }
     
     func createToDos() -> [ToDo] {
@@ -30,23 +48,24 @@ class ToDoTableViewController: UITableViewController {
         
         return [eggs, gas, dog]
     }
-
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoList.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoViewIdentifier", for: indexPath)
         //                  passing in the row for each index
         let toDo = toDoList[indexPath.row]
         
-        if toDo.isImportant {
-            cell.textLabel?.text = "❗️" + toDo.name
-        } else {
-            cell.textLabel?.text = toDo.name
+        // use if-let to unwrap optional
+        if let name = toDo.name {
+            if toDo.isImportant {
+                cell.textLabel?.text = "❗️" + name
+            } else {
+                cell.textLabel?.text = toDo.name
+            }
         }
-
         return cell
     }
     
