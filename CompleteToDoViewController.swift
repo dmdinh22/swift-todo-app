@@ -31,6 +31,7 @@ class CompleteToDoViewController: UIViewController {
                 toDoListViewController.toDoList.remove(at: index)
                 // reload table view
                 toDoListViewController.tableView.reloadData()
+                // go back to previous view by popping this view controller from stack
                 navigationController?.popViewController(animated: true)
                 break
             }
