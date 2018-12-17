@@ -21,17 +21,36 @@ class AddToDoViewController: UIViewController {
     }
     
     @IBAction func addBtnTapped(_ sender: Any) {
+        /*
         // create ToDo object with data from view
         let todoItem = ToDo()
 //        todoItem.name = titleTextField.text! // optional because text may be nil
         if let titleText = titleTextField.text {
-            todoItem.name = titleText // constand from if-let
+            todoItem.name = titleText 
             todoItem.isImportant = importantSwitch.isOn
             
             toDoListViewController.toDoList.append(todoItem)
             
             // re-render once there has been changes made
             toDoListViewController.tableView.reloadData()
+         
+            navigationController?.popViewController(animated: true)
+        }
+ */
+        //                gets the appDelegate for the view context
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+
+            let todoItem = ToDoEntity(entity: ToDoEntity.entity(), insertInto: context)
+            
+            // unwrapping the data from UI
+            // no need to reload view because todo data will be coming from core data
+            if let titleText = titleTextField.text {
+                todoItem.name = titleText // constant from if-let
+                todoItem.isImportant = importantSwitch.isOn
+            }
+            
+            // save data to Core Data
+            try? context.save()
             
             // move back to previous view - popping navigation stack
             navigationController?.popViewController(animated: true)
