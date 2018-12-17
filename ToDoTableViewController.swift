@@ -82,7 +82,7 @@ class ToDoTableViewController: UITableViewController {
         }
         
         if let completeViewController = segue.destination as? CompleteToDoViewController {
-            if let todo = sender as? ToDo {
+            if let todo = sender as? ToDoEntity {
                 // set view controller's prop as selected todo item
                 completeViewController.selectedToDoItem = todo
                 completeViewController.toDoListViewController = self

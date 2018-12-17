@@ -10,7 +10,7 @@ import UIKit
 
 class CompleteToDoViewController: UIViewController {
     var toDoListViewController = ToDoTableViewController()
-    var selectedToDoItem = ToDo()
+    var selectedToDoItem: ToDoEntity? = nil
     
     @IBOutlet weak var toDoTitleLabel: UILabel!
     
@@ -18,10 +18,20 @@ class CompleteToDoViewController: UIViewController {
         super.viewDidLoad()
 
         // set view's title label text to selected item's name
-        toDoTitleLabel.text = selectedToDoItem.name
+        toDoTitleLabel.text = selectedToDoItem?.name
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            if let todoItem = selectedToDoItem {
+                context.delete(todoItem)
+                navigationController?.popViewController(animated: true)
+            }
+        }
+        
+        /*
+         ## UI deletion ##
         var index = 0
         // remove item from list on todo list view controller
         // loop through array and find matching item to remove
@@ -37,5 +47,6 @@ class CompleteToDoViewController: UIViewController {
             }
             index += 1
         }
+        */
     }
 }
